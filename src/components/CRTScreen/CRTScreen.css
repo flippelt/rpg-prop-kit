@@ -1,0 +1,153 @@
+/* === Casca do CRT ===
+   Adaptado de Immersive-Terminal-for-RPGs/src/styles/crt.css.
+   Classes e variáveis recebem o prefixo `rpk-`/`--rpk-` para não colidir
+   com o CSS do app que consome o pacote. */
+.rpk-crt {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    var(--rpk-bg-soft, #001a00) 0%,
+    var(--rpk-bg, #000) 80%
+  );
+  color: var(--rpk-fg, #33ff33);
+  font-family: var(--rpk-font, 'Courier New', monospace);
+  font-size: var(--rpk-font-size, 20px);
+  line-height: 1.25;
+  overflow: hidden;
+}
+
+.rpk-crt--fullscreen {
+  position: fixed;
+  inset: 0;
+  width: auto;
+  height: auto;
+}
+
+/* Tela curva interna */
+.rpk-crt__screen {
+  position: absolute;
+  inset: 24px;
+  border-radius: 18px / 26px;
+  padding: 32px 36px;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 80px rgba(0, 0, 0, 0.85),
+    inset 0 0 220px rgba(0, 0, 0, 0.65),
+    0 0 60px color-mix(in srgb, var(--rpk-fg, #33ff33) 25%, transparent);
+}
+
+.rpk-crt--curved .rpk-crt__screen {
+  transform: perspective(1400px) rotateX(0.6deg);
+}
+
+.rpk-crt__content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rpk-muted, #1a661a) transparent;
+  text-shadow:
+    0 0 calc(var(--rpk-glow, 6px) * 0.6) currentColor,
+    0 0 var(--rpk-glow, 6px) currentColor;
+}
+
+.rpk-crt__content::-webkit-scrollbar { width: 6px; }
+.rpk-crt__content::-webkit-scrollbar-thumb {
+  background: var(--rpk-muted, #1a661a);
+  border-radius: 3px;
+}
+
+.rpk-crt__content--flicker { animation: rpk-flicker 4s infinite; }
+
+/* === Scanlines === */
+.rpk-crt--scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.28) 3px,
+    rgba(0, 0, 0, 0.28) 3px
+  );
+  pointer-events: none;
+  z-index: 4;
+  mix-blend-mode: multiply;
+}
+
+/* === Faixa de luz descendo === */
+.rpk-crt--sweep::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -20%;
+  height: 14%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--rpk-fg, #33ff33) 5%, transparent) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+  animation: rpk-sweep 9s linear infinite;
+  mix-blend-mode: screen;
+  opacity: 0.6;
+}
+
+/* === Vignette === */
+.rpk-crt__vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+@keyframes rpk-sweep {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(900%); }
+}
+
+@keyframes rpk-flicker {
+  0%, 100% { opacity: 1; }
+  3%       { opacity: 0.92; }
+  3.5%     { opacity: 1; }
+  41%      { opacity: 1; }
+  41.5%    { opacity: 0.88; }
+  42%      { opacity: 1; }
+  77%      { opacity: 0.95; }
+  77.5%    { opacity: 1; }
+}
+
+/* Respeita quem desativa animações no sistema. */
+@media (prefers-reduced-motion: reduce) {
+  .rpk-crt--sweep::after,
+  .rpk-crt__content--flicker {
+    animation: none;
+  }
+}
+
+/* === Telas estreitas === */
+@media (max-width: 640px) {
+  .rpk-crt {
+    font-size: clamp(12px, 3.6vw, var(--rpk-font-size, 18px));
+  }
+  .rpk-crt__screen {
+    inset: 6px;
+    padding: 14px 12px;
+    border-radius: 10px;
+  }
+  .rpk-crt--curved .rpk-crt__screen {
+    transform: none; /* tira o tilt 3D pra evitar overflow no celular */
+  }
+}

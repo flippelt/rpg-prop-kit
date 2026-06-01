@@ -1,0 +1,55 @@
+{
+  "name": "rpg-prop-kit",
+  "version": "0.1.0",
+  "description": "Props de UI retro (CRT e afins) para ferramentas de RPG de mesa — componentes React extraídos do Immersive Terminal.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Felipe Lippelt",
+  "keywords": [
+    "react",
+    "crt",
+    "retro",
+    "terminal",
+    "ttrpg",
+    "rpg",
+    "tabletop",
+    "components"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/rpg-prop-kit.umd.cjs",
+  "module": "./dist/rpg-prop-kit.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/rpg-prop-kit.js",
+      "require": "./dist/rpg-prop-kit.umd.cjs"
+    },
+    "./styles.css": "./dist/rpg-prop-kit.css"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.19",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vite-plugin-dts": "^4.4.0"
+  }
+}

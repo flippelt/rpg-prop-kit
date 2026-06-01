@@ -1,0 +1,38 @@
+/* Temas embutidos. Aplicados via atributo `data-rpk-theme` no componente
+   (ex.: <CRTScreen theme="amber" />). As variáveis são herdadas pelos
+   filhos, então qualquer conteúdo dentro da tela pega as cores do fósforo.
+   Para um tema próprio, defina as mesmas variáveis num ancestral e não
+   passe a prop `theme`. */
+
+[data-rpk-theme='phosphor'] {
+  --rpk-bg: #000;
+  --rpk-bg-soft: #001a00;
+  --rpk-fg: #33ff33;
+  --rpk-accent: #88ff88;
+  --rpk-muted: #1a661a;
+  --rpk-error: #ff4444;
+  --rpk-glow: 6px;
+  --rpk-font: 'Courier New', monospace;
+}
+
+[data-rpk-theme='amber'] {
+  --rpk-bg: #0a0500;
+  --rpk-bg-soft: #1a0f00;
+  --rpk-fg: #ffb000;
+  --rpk-accent: #ffd070;
+  --rpk-muted: #7a5200;
+  --rpk-error: #ff5e3a;
+  --rpk-glow: 6px;
+  --rpk-font: 'Courier New', monospace;
+}
+
+[data-rpk-theme='ice'] {
+  --rpk-bg: #00060a;
+  --rpk-bg-soft: #001624;
+  --rpk-fg: #6fd3ff;
+  --rpk-accent: #b7ecff;
+  --rpk-muted: #1a5a7a;
+  --rpk-error: #ff5b7f;
+  --rpk-glow: 7px;
+  --rpk-font: 'Courier New', monospace;
+}

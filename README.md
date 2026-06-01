@@ -1,5 +1,9 @@
 # rpg-prop-kit
 
+[![npm version](https://img.shields.io/npm/v/rpg-prop-kit?logo=npm)](https://www.npmjs.com/package/rpg-prop-kit)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/rpg-prop-kit)](https://bundlephobia.com/package/rpg-prop-kit)
+[![license](https://img.shields.io/npm/l/rpg-prop-kit)](./LICENSE)
+
 Props de UI retrô para ferramentas de RPG de mesa — componentes React prontos
 para dar clima de "terminal de ficção científica" às suas mesas. Os componentes
 nascem do efeito CRT do [Immersive Terminal for RPGs](https://github.com/flippelt/Immersive-Terminal-for-RPGs),

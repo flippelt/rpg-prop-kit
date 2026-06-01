@@ -9,9 +9,14 @@ extraídos e empacotados para reuso em qualquer projeto.
 
 ## Componentes
 
-| Componente    | Descrição                                                        |
-| ------------- | ---------------------------------------------------------------- |
-| `<CRTScreen>` | Moldura de monitor CRT (scanlines, flicker, sweep, vignette, curvatura), com temas de fósforo. |
+| Componente       | Descrição                                                        |
+| ---------------- | ---------------------------------------------------------------- |
+| `<CRTScreen>`    | Moldura de monitor CRT (scanlines, flicker, sweep, vignette, curvatura), com temas de fósforo. |
+| `<TypeWriter>`   | Digita um texto caractere a caractere, com cursor piscando.      |
+| `<BootSequence>` | Sequência de boot: linhas digitadas em ordem, com cores por status. |
+| `<CRTImage>`     | Imagem com tratamento de fósforo (dessaturada, tom + scanlines). |
+
+Hook: `useTypewriter(text, options)` — a lógica de digitação, caso queira montar o seu próprio componente.
 
 _Mais props chegam nas próximas versões._
 
@@ -26,13 +31,20 @@ npm install rpg-prop-kit
 ## Uso
 
 ```tsx
-import { CRTScreen } from 'rpg-prop-kit'
+import { CRTScreen, BootSequence, TypeWriter } from 'rpg-prop-kit'
 import 'rpg-prop-kit/styles.css'
 
 export function App() {
   return (
     <CRTScreen theme="phosphor" fullscreen>
-      <pre>{`> acesso concedido.\n> bem-vindo, operador._`}</pre>
+      <BootSequence
+        lines={[
+          { text: '> POST ......... OK', status: 'ok' },
+          '> carregando manifesto da missao ...',
+          { text: '> AVISO: assinatura desconhecida', status: 'error' },
+        ]}
+      />
+      <TypeWriter text="> bem-vindo, operador._" cursor />
     </CRTScreen>
   )
 }

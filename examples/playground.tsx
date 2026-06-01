@@ -1,11 +1,24 @@
 import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { CRTScreen, type CRTTheme } from '../src'
+import {
+  CRTScreen,
+  BootSequence,
+  TypeWriter,
+  type CRTTheme,
+} from '../src'
 
 const THEMES: CRTTheme[] = ['phosphor', 'amber', 'ice']
 
 type Toggle = 'scanlines' | 'flicker' | 'sweep' | 'vignette' | 'curvature'
 const TOGGLES: Toggle[] = ['scanlines', 'flicker', 'sweep', 'vignette', 'curvature']
+
+const BOOT_LINES = [
+  { text: '> POST ............................ OK', status: 'ok' as const },
+  { text: '> carregando rpg-prop-kit v0.1.0 ...', status: 'default' as const },
+  { text: '> montando subsistema de video ... OK', status: 'ok' as const },
+  { text: '> AVISO: fluxo de antiprotons instavel', status: 'error' as const },
+  { text: '> (use a barra acima para configurar a tela)', status: 'muted' as const },
+]
 
 function Playground() {
   const [theme, setTheme] = useState<CRTTheme>('phosphor')
@@ -16,6 +29,9 @@ function Playground() {
     vignette: true,
     curvature: true,
   })
+  // chave para reiniciar a BootSequence ao clicar em "reboot"
+  const [bootKey, setBootKey] = useState(0)
+  const [bootDone, setBootDone] = useState(false)
 
   return (
     <div style={{ display: 'grid', gridTemplateRows: 'auto 1fr', height: '100%' }}>
@@ -32,7 +48,7 @@ function Playground() {
           fontSize: 14,
         }}
       >
-        <strong>rpg-prop-kit · CRTScreen</strong>
+        <strong>rpg-prop-kit</strong>
 
         <label>
           tema:{' '}
@@ -55,6 +71,15 @@ function Playground() {
             {key}
           </label>
         ))}
+
+        <button
+          onClick={() => {
+            setBootDone(false)
+            setBootKey((k) => k + 1)
+          }}
+        >
+          reboot
+        </button>
       </header>
 
       <div style={{ position: 'relative' }}>
@@ -66,19 +91,21 @@ function Playground() {
           vignette={fx.vignette}
           curvature={fx.curvature}
         >
-          <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
-{`> SISTEMA INICIALIZADO
-> carregando rpg-prop-kit v0.1.0 ...
-> componente: <CRTScreen />
+          <BootSequence
+            key={bootKey}
+            lines={BOOT_LINES}
+            onDone={() => setBootDone(true)}
+          />
 
-Olá, mestre. Este é o playground do kit.
-
-Use a barra acima para trocar o tema e ligar/desligar
-cada efeito do monitor. Tudo isto sai do mesmo componente
-que você vai poder usar em outros projetos.
-
-> _`}
-          </pre>
+          {bootDone && (
+            <div style={{ marginTop: '1.5em' }}>
+              <TypeWriter
+                text={'> sistema pronto. bem-vindo, operador._'}
+                speed={32}
+                cursor
+              />
+            </div>
+          )}
         </CRTScreen>
       </div>
     </div>

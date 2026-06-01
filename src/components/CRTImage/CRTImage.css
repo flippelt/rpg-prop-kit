@@ -1,0 +1,45 @@
+/* Adaptado de crt-img no Immersive Terminal. */
+.rpk-crt-img {
+  position: relative;
+  display: inline-block;
+  margin: 8px 0;
+  max-width: min(480px, 100%);
+  line-height: 0;
+}
+
+.rpk-crt-img__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  /* Empurra para o visual de fósforo: dessatura e levanta o contraste. */
+  filter: grayscale(1) brightness(1.05) contrast(1.18);
+  border: 1px solid var(--rpk-muted, #1a661a);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--rpk-accent, #88ff88) 30%, transparent);
+}
+
+/* Tom de fósforo por cima da imagem. */
+.rpk-crt-img--tint::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--rpk-accent, #88ff88);
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+}
+
+/* Scanlines por cima da imagem. */
+.rpk-crt-img--scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.35) 3px
+  );
+}

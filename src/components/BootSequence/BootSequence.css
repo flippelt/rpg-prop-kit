@@ -1,0 +1,15 @@
+.rpk-boot {
+  display: flex;
+  flex-direction: column;
+}
+
+.rpk-boot__line {
+  margin: 0;
+  min-height: 1.25em;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.rpk-boot__line--ok    { color: var(--rpk-accent, #88ff88); }
+.rpk-boot__line--error { color: var(--rpk-error, #ff4444); }
+.rpk-boot__line--muted { color: var(--rpk-muted, #1a661a); }

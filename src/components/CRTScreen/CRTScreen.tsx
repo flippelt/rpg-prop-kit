@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from 'react'
+import { cx } from '../../utils/cx'
 import './CRTScreen.css'
 
 export type CRTTheme = 'phosphor' | 'amber' | 'ice'
@@ -28,9 +29,6 @@ export interface CRTScreenProps {
   /** Estilos inline no container externo. */
   style?: CSSProperties
 }
-
-const cx = (...parts: Array<string | false | undefined>) =>
-  parts.filter(Boolean).join(' ')
 
 /**
  * Moldura de monitor CRT retrô. Renderiza a casca (gradiente de fósforo,

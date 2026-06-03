@@ -1,5 +1,6 @@
 # rpg-prop-kit
 
+[![CI](https://github.com/flippelt/rpg-prop-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/flippelt/rpg-prop-kit/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/rpg-prop-kit?logo=npm)](https://www.npmjs.com/package/rpg-prop-kit)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/rpg-prop-kit)](https://bundlephobia.com/package/rpg-prop-kit)
 [![license](https://img.shields.io/npm/l/rpg-prop-kit)](./LICENSE)

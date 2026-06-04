@@ -17,6 +17,12 @@ e o projeto adota o [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 - Scripts `test` e `test:watch`.
 - Os testes agora rodam no CI e como gate do `prepublishOnly`.
 
+### Alterado
+
+- Vitest atualizado de 2.x para 4.x (ferramenta de dev), zerando as
+  vulnerabilidades transitivas de `vite`/`esbuild`. Sem impacto no pacote
+  publicado — afeta apenas o ambiente de testes.
+
 ## [0.1.0] - 2026-06-03
 
 ### Adicionado

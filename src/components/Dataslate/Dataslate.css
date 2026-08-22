@@ -1,0 +1,60 @@
+.rpk-slate {
+  background: var(--rpk-slate-bezel, #1c221e);
+  color: var(--rpk-slate-fg, #7cff6b);
+  padding: 14px;
+  border-radius: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.rpk-slate__lcd {
+  position: relative;
+  background: radial-gradient(
+    ellipse at center,
+    var(--rpk-slate-soft, #102010) 0%,
+    var(--rpk-slate-bg, #0b0e0c) 75%
+  );
+  min-height: 8rem;
+  padding: 1rem 1.1rem;
+  border-radius: 4px;
+  overflow: auto;
+  text-shadow: 0 0 6px currentColor;
+  box-shadow: inset 0 0 22px rgba(0, 0, 0, 0.75);
+  scrollbar-width: thin;
+  scrollbar-color: var(--rpk-slate-muted, #1a4a22) transparent;
+}
+
+.rpk-slate--scanlines .rpk-slate__lcd::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.22) 3px
+  );
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+
+.rpk-slate__led {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--rpk-slate-fg, #7cff6b);
+  box-shadow: 0 0 8px var(--rpk-slate-fg, #7cff6b);
+  z-index: 3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rpk-slate__led {
+    box-shadow: none;
+  }
+}

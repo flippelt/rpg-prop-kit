@@ -1,0 +1,113 @@
+/* Paletas dos props analógicos (pergaminho, cera, metal, dataslate).
+   Aplicadas via data-attribute no componente, no mesmo espírito de
+   [data-rpk-theme] dos CRTs. Classes de layout ficam no CSS de cada
+   componente; daqui só saem as variáveis de cor. */
+
+[data-rpk-parchment='vellum'] {
+  --rpk-paper: #e8d9b8;
+  --rpk-paper-soft: #f3ead2;
+  --rpk-paper-shadow: #c4b08a;
+  --rpk-ink: #3a2a18;
+  --rpk-ink-muted: #6a5338;
+  --rpk-rule: color-mix(in srgb, #3a2a18 16%, #e8d9b8);
+  --rpk-stain: rgba(110, 70, 30, 0.14);
+  --rpk-font: Palatino, 'Palatino Linotype', 'Times New Roman', serif;
+}
+
+[data-rpk-parchment='folio'] {
+  --rpk-paper: #f4ecd8;
+  --rpk-paper-soft: #fbf6ea;
+  --rpk-paper-shadow: #d2c4a0;
+  --rpk-ink: #2c2416;
+  --rpk-ink-muted: #5c4e38;
+  --rpk-rule: color-mix(in srgb, #2c2416 14%, #f4ecd8);
+  --rpk-stain: rgba(90, 60, 20, 0.12);
+  --rpk-font: Palatino, 'Palatino Linotype', 'Times New Roman', serif;
+}
+
+[data-rpk-parchment='ash'] {
+  --rpk-paper: #d5cbb8;
+  --rpk-paper-soft: #e4d9c6;
+  --rpk-paper-shadow: #b0a48e;
+  --rpk-ink: #2a2420;
+  --rpk-ink-muted: #5a5248;
+  --rpk-rule: color-mix(in srgb, #2a2420 16%, #d5cbb8);
+  --rpk-stain: rgba(40, 32, 24, 0.16);
+  --rpk-font: Palatino, 'Palatino Linotype', 'Times New Roman', serif;
+}
+
+[data-rpk-wax='crimson'] {
+  --rpk-wax: #be4d37;
+  --rpk-wax-mid: #9c2a1c;
+  --rpk-wax-deep: #6e1810;
+  --rpk-wax-hi: rgba(255, 214, 196, 0.5);
+}
+
+[data-rpk-wax='gold'] {
+  --rpk-wax: #c98a3a;
+  --rpk-wax-mid: #9c6a1c;
+  --rpk-wax-deep: #6e4810;
+  --rpk-wax-hi: rgba(255, 232, 188, 0.5);
+}
+
+[data-rpk-wax='green'] {
+  --rpk-wax: #3d8a58;
+  --rpk-wax-mid: #1f6a3a;
+  --rpk-wax-deep: #0f3e22;
+  --rpk-wax-hi: rgba(196, 255, 214, 0.4);
+}
+
+[data-rpk-wax='charcoal'] {
+  --rpk-wax: #5a534d;
+  --rpk-wax-mid: #3a342f;
+  --rpk-wax-deep: #211d1a;
+  --rpk-wax-hi: rgba(214, 214, 214, 0.26);
+}
+
+[data-rpk-metal='iron'] {
+  --rpk-metal: #6a6e74;
+  --rpk-metal-hi: #9aa0a8;
+  --rpk-metal-lo: #2e3238;
+  --rpk-metal-ink: #e8eaed;
+}
+
+[data-rpk-metal='brass'] {
+  --rpk-metal: #b08a3a;
+  --rpk-metal-hi: #e2c878;
+  --rpk-metal-lo: #5a3e10;
+  --rpk-metal-ink: #1a1408;
+}
+
+[data-rpk-metal='gunmetal'] {
+  --rpk-metal: #3e4a52;
+  --rpk-metal-hi: #6a7a86;
+  --rpk-metal-lo: #1a2228;
+  --rpk-metal-ink: #d6e0e8;
+}
+
+[data-rpk-slate='imperial'] {
+  --rpk-slate-bg: #0b0e0c;
+  --rpk-slate-soft: #102010;
+  --rpk-slate-fg: #7cff6b;
+  --rpk-slate-muted: #1a4a22;
+  --rpk-slate-bezel: #1c221e;
+  --rpk-slate-error: #ff5b4a;
+}
+
+[data-rpk-slate='union'] {
+  --rpk-slate-bg: #070b12;
+  --rpk-slate-soft: #102038;
+  --rpk-slate-fg: #6fd3ff;
+  --rpk-slate-muted: #1a5a7a;
+  --rpk-slate-bezel: #161c24;
+  --rpk-slate-error: #ff5b7f;
+}
+
+[data-rpk-slate='amber'] {
+  --rpk-slate-bg: #0a0500;
+  --rpk-slate-soft: #1a0f00;
+  --rpk-slate-fg: #ffb000;
+  --rpk-slate-muted: #7a5200;
+  --rpk-slate-bezel: #1c1408;
+  --rpk-slate-error: #ff5e3a;
+}

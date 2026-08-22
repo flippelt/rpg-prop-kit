@@ -1,0 +1,50 @@
+.rpk-poster {
+  --rpk-poster-paper: #efe6c9;
+  --rpk-poster-ink: #1a140c;
+  --rpk-poster-kicker: #7a1f16;
+  position: relative;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(90, 60, 20, 0.08), transparent 28%),
+    radial-gradient(circle at 92% 88%, rgba(90, 60, 20, 0.1), transparent 32%),
+    var(--rpk-poster-paper);
+  color: var(--rpk-poster-ink);
+  border: 10px double var(--rpk-poster-ink);
+  padding: 1.6rem 1.4rem 1.4rem;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+}
+
+.rpk-poster__eyebrow {
+  display: block;
+  letter-spacing: 0.38em;
+  font-weight: 700;
+  font-size: 0.72rem;
+  color: var(--rpk-poster-kicker);
+  margin-bottom: 0.55rem;
+}
+
+.rpk-poster__title {
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.rpk-poster__body {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.rpk-poster__footer {
+  margin-top: 1.15rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid color-mix(in srgb, var(--rpk-poster-ink) 35%, transparent);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--rpk-poster-ink) 75%, transparent);
+}

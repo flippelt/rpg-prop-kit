@@ -1,0 +1,97 @@
+.rpk-seal {
+  --rpk-seal-size: 96px;
+  position: relative;
+  display: inline-block;
+  width: var(--rpk-seal-size);
+  height: var(--rpk-seal-size);
+  transform: rotate(-8deg);
+  filter: drop-shadow(0 4px 9px rgba(0, 0, 0, 0.45));
+  pointer-events: none;
+}
+
+.rpk-seal__ribbon {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 28%;
+  height: 88%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--rpk-wax-deep, #6e1810) 80%, #000) 0%,
+    var(--rpk-wax-mid, #9c2a1c) 45%,
+    color-mix(in srgb, var(--rpk-wax-deep, #6e1810) 80%, #000) 100%
+  );
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+  z-index: 0;
+}
+
+.rpk-seal__blob {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(
+      ellipse 55% 42% at 38% 30%,
+      var(--rpk-wax-hi, rgba(255, 214, 196, 0.5)),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 52% 48%,
+      var(--rpk-wax, #be4d37) 0%,
+      var(--rpk-wax-mid, #9c2a1c) 55%,
+      var(--rpk-wax-deep, #6e1810) 100%
+    );
+  box-shadow:
+    inset 0 -3px 8px rgba(0, 0, 0, 0.38),
+    inset 0 3px 7px rgba(255, 180, 150, 0.22);
+}
+
+.rpk-seal--1 .rpk-seal__blob {
+  border-radius: 49% 51% 48% 52% / 52% 49% 51% 48%;
+}
+.rpk-seal--2 .rpk-seal__blob {
+  border-radius: 54% 46% 56% 44% / 47% 55% 45% 53%;
+}
+.rpk-seal--3 .rpk-seal__blob {
+  border-radius: 46% 54% 50% 50% / 55% 45% 55% 45%;
+}
+.rpk-seal--4 .rpk-seal__blob {
+  border-radius: 52% 48% 45% 55% / 49% 53% 47% 51%;
+}
+.rpk-seal--5 .rpk-seal__blob {
+  border-radius: 56% 44% 53% 47% / 45% 55% 48% 52%;
+}
+.rpk-seal--6 .rpk-seal__blob {
+  border-radius: 47% 53% 54% 46% / 52% 47% 53% 48%;
+}
+
+.rpk-seal__glyph {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: calc(var(--rpk-seal-size) * 0.32);
+  line-height: 1;
+  color: var(--rpk-wax-deep, #6e1810);
+  text-shadow: 0 1px 0 rgba(255, 200, 180, 0.28);
+}
+
+.rpk-seal__motto {
+  position: absolute;
+  left: 50%;
+  bottom: 18%;
+  transform: translateX(-50%);
+  z-index: 2;
+  max-width: 78%;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: calc(var(--rpk-seal-size) * 0.09);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rpk-wax-deep, #6e1810);
+  text-align: center;
+  line-height: 1.1;
+}

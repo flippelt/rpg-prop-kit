@@ -5,12 +5,12 @@
 [![bundle size](https://img.shields.io/bundlephobia/minzip/rpg-prop-kit)](https://bundlephobia.com/package/rpg-prop-kit)
 [![license](https://img.shields.io/npm/l/rpg-prop-kit)](./LICENSE)
 
-Props de UI retrô para ferramentas de RPG de mesa — componentes React prontos
-para dar clima de "terminal de ficção científica" às suas mesas. Os componentes
-nascem do efeito CRT do [Immersive Terminal for RPGs](https://github.com/flippelt/Immersive-Terminal-for-RPGs),
-extraídos e empacotados para reuso em qualquer projeto.
+Props de UI para ferramentas de RPG de mesa — CRT retrô **e** analogicos
+(pergaminho, lacre de cera, cartaz, placa de metal, dataslate). Os CRTs
+nascem do [Immersive Terminal for RPGs](https://github.com/flippelt/Immersive-Terminal-for-RPGs);
+o resto é a mesma linguagem visual para handouts de fantasia e sci-fi.
 
-> ⚠️ **Status:** em desenvolvimento inicial (`v0.1.0`). API pode mudar.
+> ⚠️ **Status:** `v0.2.0`. API ainda pode mudar na linha 0.x.
 
 ## Componentes
 
@@ -20,8 +20,17 @@ extraídos e empacotados para reuso em qualquer projeto.
 | `<TypeWriter>`   | Digita um texto caractere a caractere, com cursor piscando.      |
 | `<BootSequence>` | Sequência de boot: linhas digitadas em ordem, com cores por status. |
 | `<CRTImage>`     | Imagem com tratamento de fósforo (dessaturada, tom + scanlines). |
+| `<Parchment>`    | Folha de papel quente (`vellum` / `folio` / `ash`), opcionalmente pautada e manchada. |
+| `<WaxSeal>`      | Gota de cera irregular + glifo (`crimson` / `gold` / `green` / `charcoal`). |
+| `<Poster>`       | Cartaz de aviso / procurado (moldura dupla, título em caixa alta). |
+| `<MetalPlate>`   | Placa escovada com rebites (`iron` / `brass` / `gunmetal`). |
+| `<Dataslate>`    | Tablete sci-fi (`imperial` / `union` / `amber`) com LCD e scanlines. |
 
 Hook: `useTypewriter(text, options)` — a lógica de digitação, caso queira montar o seu próprio componente.
+
+As classes CSS (`rpk-parchment`, `rpk-seal`, `rpk-poster`, `rpk-plate`,
+`rpk-slate`) funcionam sozinhas se você só importar `rpg-prop-kit/styles.css`
+— os componentes React só aplicam as classes e as paletas via `data-rpk-*`.
 
 _Mais props chegam nas próximas versões._
 
@@ -51,6 +60,26 @@ export function App() {
       />
       <TypeWriter text="> bem-vindo, operador._" cursor />
     </CRTScreen>
+  )
+}
+```
+
+```tsx
+import { Parchment, WaxSeal, Poster, Dataslate } from 'rpg-prop-kit'
+import 'rpg-prop-kit/styles.css'
+
+export function Handouts() {
+  return (
+    <>
+      <Parchment tone="vellum" stained>
+        <p>O sino silenciou na terceira vela.</p>
+        <WaxSeal glyph="P" color="crimson" motto="vigilia" />
+      </Parchment>
+      <Poster eyebrow="aviso" title="A Fenda">
+        Não cruzar o fosso após o sino.
+      </Poster>
+      <Dataslate tone="union">Prioridade verde. Lance autorizada.</Dataslate>
+    </>
   )
 }
 ```
@@ -94,9 +123,9 @@ A estrutura:
 
 ```
 src/
-  components/   # um diretório por componente (CRTScreen, ...)
+  components/   # um diretório por componente (CRTScreen, Parchment, ...)
   hooks/        # hooks reutilizáveis
-  styles/       # temas e tokens compartilhados
+  styles/       # temas CRT (`themes.css`) e paletas analogicas (`analog.css`)
   utils/        # helpers
 examples/       # playground consumido pelo index.html da raiz
 ```

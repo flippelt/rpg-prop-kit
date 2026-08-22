@@ -130,7 +130,7 @@ A estrutura:
 src/
   components/   # um diretório por componente (CRTScreen, Parchment, ...)
   hooks/        # hooks reutilizáveis
-  styles/       # temas CRT (`themes.css`) e paletas analogicas (`analog.css`)
+  styles/       # temas CRT (`themes.css`) e paletas analógicas (`analog.css`)
   utils/        # helpers
 examples/       # playground consumido pelo index.html da raiz
 ```

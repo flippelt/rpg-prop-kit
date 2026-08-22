@@ -1,10 +1,16 @@
 {
   "name": "rpg-prop-kit",
   "version": "0.2.0",
-  "description": "Props de UI para RPG de mesa — CRT retrô e analogicos (pergaminho, lacre, cartaz, placa, dataslate).",
+  "description": "Props de UI para RPG de mesa — CRT retrô e analógicos (pergaminho, lacre, cartaz, placa, dataslate).",
   "type": "module",
   "license": "MIT",
   "author": "Felipe Lippelt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flippelt/rpg-prop-kit.git"
+  },
+  "homepage": "https://github.com/flippelt/rpg-prop-kit#readme",
+  "bugs": "https://github.com/flippelt/rpg-prop-kit/issues",
   "keywords": [
     "react",
     "crt",

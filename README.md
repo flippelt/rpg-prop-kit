@@ -5,7 +5,7 @@
 [![bundle size](https://img.shields.io/bundlephobia/minzip/rpg-prop-kit)](https://bundlephobia.com/package/rpg-prop-kit)
 [![license](https://img.shields.io/npm/l/rpg-prop-kit)](./LICENSE)
 
-Props de UI para ferramentas de RPG de mesa — CRT retrô **e** analogicos
+Props de UI para ferramentas de RPG de mesa — CRT retrô **e** analógicos
 (pergaminho, lacre de cera, cartaz, placa de metal, dataslate). Os CRTs
 nascem do [Immersive Terminal for RPGs](https://github.com/flippelt/Immersive-Terminal-for-RPGs);
 o resto é a mesma linguagem visual para handouts de fantasia e sci-fi.
@@ -117,7 +117,12 @@ Não passe `theme` e defina as variáveis num ancestral:
 npm install      # instala as dependências
 npm run dev      # playground em http://localhost:5173
 npm run build    # gera o pacote em dist/ (ES + UMD + tipos)
+npm test
 ```
+
+Release no npm: tag `v*` dispara `.github/workflows/publish.yml` (OIDC, sem
+`NPM_TOKEN`). Trusted publisher no npmjs.com aponta para este repo e o
+arquivo `publish.yml`.
 
 A estrutura:
 

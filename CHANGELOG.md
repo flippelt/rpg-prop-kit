@@ -23,6 +23,15 @@ e o projeto adota o [Versionamento Semântico](https://semver.org/lang/pt-BR/).
   vulnerabilidades transitivas de `vite`/`esbuild`. Sem impacto no pacote
   publicado — afeta apenas o ambiente de testes.
 
+## [0.2.0] - 2026-08-22
+
+### Adicionado
+
+- Família analógica: `Parchment`, `WaxSeal`, `Poster`, `MetalPlate`, `Dataslate`.
+- Paletas em `src/styles/analog.css` (`data-rpk-parchment` / `wax` / `metal` /
+  `slate`). As classes CSS funcionam sem React; os componentes só as aplicam.
+- Playground: seletor `familia` (crt | analog).
+
 ## [0.1.0] - 2026-06-03
 
 ### Adicionado

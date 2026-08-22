@@ -1,7 +1,7 @@
 {
   "name": "rpg-prop-kit",
-  "version": "0.1.0",
-  "description": "Props de UI retro (CRT e afins) para ferramentas de RPG de mesa — componentes React extraídos do Immersive Terminal.",
+  "version": "0.2.0",
+  "description": "Props de UI para RPG de mesa — CRT retrô e analogicos (pergaminho, lacre, cartaz, placa, dataslate).",
   "type": "module",
   "license": "MIT",
   "author": "Felipe Lippelt",
@@ -13,6 +13,8 @@
     "ttrpg",
     "rpg",
     "tabletop",
+    "parchment",
+    "handout",
     "components"
   ],
   "files": [

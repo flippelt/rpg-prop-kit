@@ -1,0 +1,61 @@
+.rpk-parchment {
+  position: relative;
+  background:
+    radial-gradient(
+      ellipse 80% 50% at 10% 0%,
+      color-mix(in srgb, var(--rpk-paper-soft, #f3ead2) 80%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 95% 100%,
+      var(--rpk-stain, rgba(110, 70, 30, 0.12)),
+      transparent 60%
+    ),
+    var(--rpk-paper, #e8d9b8);
+  color: var(--rpk-ink, #3a2a18);
+  font-family: var(--rpk-font, Palatino, 'Times New Roman', serif);
+  font-size: var(--rpk-font-size, 1.05rem);
+  line-height: 1.65;
+  padding: 2rem 2.25rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -10px 24px rgba(80, 40, 10, 0.1),
+    0 18px 40px rgba(40, 20, 5, 0.22);
+}
+
+.rpk-parchment--ruled {
+  background-image:
+    radial-gradient(
+      ellipse 80% 50% at 10% 0%,
+      color-mix(in srgb, var(--rpk-paper-soft, #f3ead2) 80%, transparent),
+      transparent 55%
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1.55em,
+      var(--rpk-rule, #c4b08a) 1.55em,
+      var(--rpk-rule, #c4b08a) calc(1.55em + 1px)
+    ),
+    var(--rpk-paper, #e8d9b8);
+}
+
+.rpk-parchment__body {
+  position: relative;
+  z-index: 1;
+}
+
+.rpk-parchment--stained::after {
+  content: '';
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  right: 11%;
+  bottom: 16%;
+  border-radius: 50%;
+  border: 9px solid var(--rpk-stain, rgba(110, 70, 30, 0.14));
+  box-shadow: inset 0 0 12px var(--rpk-stain, rgba(110, 70, 30, 0.1));
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(-8deg);
+}

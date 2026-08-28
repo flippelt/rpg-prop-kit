@@ -135,6 +135,14 @@ src/
 examples/       # playground consumido pelo index.html da raiz
 ```
 
+## Família
+
+Usado por [Immersive Terminal](https://github.com/flippelt/Immersive-Terminal-for-RPGs),
+[scenario-forge](https://flippelt.github.io/scenario-forge/),
+[GM Control Room](https://github.com/flippelt/gm-control-room) e o
+[portfólio](https://flippelt.github.io/). O irmão impresso é o
+[mesa-press](https://github.com/flippelt/mesa-press) (Markdown → PDF).
+
 ## Licença
 
 [MIT](./LICENSE) © Felipe Lippelt

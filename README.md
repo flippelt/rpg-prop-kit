@@ -12,6 +12,12 @@ o resto é a mesma linguagem visual para handouts de fantasia e sci-fi.
 
 > ⚠️ **Status:** `v0.2.0`. API ainda pode mudar na linha 0.x.
 
+## Screenshots
+
+![CRT com boot typewriter](docs/screenshots/crt-screen.png)
+
+![Props analógicos: pergaminho, cartaz, placa, dataslate](docs/screenshots/analog-props.png)
+
 ## Componentes
 
 | Componente       | Descrição                                                        |

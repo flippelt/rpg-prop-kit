@@ -14,9 +14,11 @@ o resto é a mesma linguagem visual para handouts de fantasia e sci-fi.
 
 ## Screenshots
 
-![CRT com boot typewriter](docs/screenshots/crt-screen.png)
+Clique para ver em 1080p.
 
-![Props analógicos: pergaminho, cartaz, placa, dataslate](docs/screenshots/analog-props.png)
+[<img src="docs/screenshots/crt-screen.png" width="720" alt="CRT com boot typewriter">](docs/screenshots/crt-screen.png)
+
+[<img src="docs/screenshots/analog-props.png" width="720" alt="Props analógicos: pergaminho, cartaz, placa, dataslate">](docs/screenshots/analog-props.png)
 
 ## Componentes
 

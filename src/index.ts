@@ -6,6 +6,12 @@ import './styles/analog.css'
 export { CRTScreen } from './components/CRTScreen'
 export type { CRTScreenProps, CRTTheme } from './components/CRTScreen'
 
+export { CRTGpuOverlay } from './components/CRTGpuOverlay'
+export type { CRTGpuOverlayProps, CRTGpuStatus } from './components/CRTGpuOverlay'
+export { createCrtOverlay } from './gpu/crtOverlay'
+export type { CrtOverlay } from './gpu/crtOverlay'
+export type { CrtOverlayOptions } from './gpu/crtOverlayParams'
+
 export { TypeWriter } from './components/TypeWriter'
 export type { TypeWriterProps } from './components/TypeWriter'
 

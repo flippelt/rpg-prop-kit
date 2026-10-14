@@ -1,5 +1,7 @@
-import type { CSSProperties, ReactNode } from 'react'
+import { useState, type CSSProperties, type ReactNode } from 'react'
 import { cx } from '../../utils/cx'
+import { CRTGpuOverlay } from '../CRTGpuOverlay'
+import type { CrtOverlayOptions } from '../../gpu/crtOverlayParams'
 import './CRTScreen.css'
 
 export type CRTTheme = 'phosphor' | 'amber' | 'ice'
@@ -24,6 +26,13 @@ export interface CRTScreenProps {
   vignette?: boolean
   /** Leve inclinação 3D da tela. Padrão: true. */
   curvature?: boolean
+  /**
+   * Liga o overlay em WebGPU (grade de abertura, granulado, interferência,
+   * franja e reflexo) por cima do conteúdo. Quando a GPU assume, as
+   * scanlines, o sweep e a vinheta em CSS saem para não duplicar. Sem
+   * WebGPU, fica tudo em CSS. Aceita opções finas. Padrão: false.
+   */
+  gpu?: boolean | CrtOverlayOptions
   /** Classe extra aplicada ao container externo. */
   className?: string
   /** Estilos inline no container externo. */
@@ -44,9 +53,21 @@ export function CRTScreen({
   sweep = true,
   vignette = true,
   curvature = true,
+  gpu = false,
   className,
   style,
 }: CRTScreenProps) {
+  const [gpuActive, setGpuActive] = useState(false)
+  const gpuOpts: CrtOverlayOptions | null = gpu
+    ? {
+        ...(scanlines ? {} : { scanlines: 0 }),
+        ...(vignette ? {} : { vignette: 0 }),
+        ...(sweep ? {} : { interference: 0 }),
+        ...(typeof gpu === 'object' ? gpu : {}),
+      }
+    : null
+  const useGpu = gpuOpts !== null && gpuActive
+
   return (
     <div
       className={cx(
@@ -55,6 +76,7 @@ export function CRTScreen({
         scanlines && 'rpk-crt--scanlines',
         sweep && 'rpk-crt--sweep',
         curvature && 'rpk-crt--curved',
+        useGpu && 'rpk-crt--gpu',
         className,
       )}
       data-rpk-theme={theme}
@@ -65,6 +87,12 @@ export function CRTScreen({
         <div className={cx('rpk-crt__content', flicker && 'rpk-crt__content--flicker')}>
           {children}
         </div>
+        {gpuOpts && (
+          <CRTGpuOverlay
+            {...gpuOpts}
+            onStatusChange={(status) => setGpuActive(status === 'gpu')}
+          />
+        )}
       </div>
     </div>
   )

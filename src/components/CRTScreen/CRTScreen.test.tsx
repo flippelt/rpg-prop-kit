@@ -73,4 +73,21 @@ describe('CRTScreen', () => {
     const root = container.querySelector('.rpk-crt')!
     expect(root.getAttribute('data-rpk-theme')).toBeNull()
   })
+
+  describe('gpu', () => {
+    it('sem a prop, não cria canvas', () => {
+      const { container } = render(<CRTScreen />)
+      expect(container.querySelector('canvas')).toBeNull()
+    })
+
+    it('sem WebGPU (jsdom), mantém os efeitos em CSS', async () => {
+      const { container } = render(<CRTScreen gpu />)
+      expect(container.querySelector('canvas.rpk-crt-gpu')).not.toBeNull()
+      await new Promise((r) => setTimeout(r, 0))
+      const root = container.querySelector('.rpk-crt')!
+      expect(root.className).not.toContain('rpk-crt--gpu')
+      expect(root.className).toContain('rpk-crt--scanlines')
+      expect(container.querySelector('.rpk-crt__vignette')).not.toBeNull()
+    })
+  })
 })

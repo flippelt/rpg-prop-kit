@@ -151,3 +151,10 @@
     transform: none; /* tira o tilt 3D pra evitar overflow no celular */
   }
 }
+
+/* === Overlay em WebGPU ativo: os efeitos equivalentes em CSS saem === */
+.rpk-crt--gpu.rpk-crt--scanlines::before,
+.rpk-crt--gpu.rpk-crt--sweep::after,
+.rpk-crt--gpu .rpk-crt__vignette {
+  display: none;
+}

@@ -10,8 +10,18 @@ e o projeto adota o [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
 ## [Não publicado]
 
+## [0.3.0] - 2026-10-14
+
 ### Adicionado
 
+- Overlay CRT em **WebGPU** (opcional): `<CRTScreen gpu>` liga uma camada
+  por cima do conteúdo com scanlines, grade de abertura, granulado,
+  interferência lenta, vinheta, franja nas bordas e reflexo no vidro. Quando
+  a GPU assume, scanlines, sweep e vinheta em CSS saem; sem WebGPU, nada
+  muda. A cor vem do tema (`--rpk-fg`). Respeita `prefers-reduced-motion`
+  (quadro parado), roda a 30 fps e não pisca.
+- `<CRTGpuOverlay>` e `createCrtOverlay()` para usar o overlay em telas CRT
+  próprias, fora do `CRTScreen`.
 - Suíte de testes com Vitest + Testing Library (jsdom): `cx`, `useTypewriter`,
   `BootSequence` e `CRTScreen`.
 - Scripts `test` e `test:watch`.

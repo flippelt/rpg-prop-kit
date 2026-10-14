@@ -103,8 +103,34 @@ export function Handouts() {
 | `sweep`      | `boolean`                         | `true`     | Faixa de luz descendo.                      |
 | `vignette`   | `boolean`                         | `true`     | Bordas escurecidas.                         |
 | `curvature`  | `boolean`                         | `true`     | Leve inclinação 3D.                         |
+| `gpu`        | `boolean \| CrtOverlayOptions`    | `false`    | Overlay em WebGPU (ver abaixo).             |
 | `className`  | `string`                          | —          | Classe extra no container.                  |
 | `style`      | `CSSProperties`                   | —          | Estilos inline no container.                |
+
+### Overlay em WebGPU
+
+`<CRTScreen gpu>` desenha por cima do conteúdo, num canvas que não captura
+cliques: scanlines, grade de abertura do tubo, granulado de fósforo, uma
+faixa de interferência que leva 20 s para descer, vinheta, franja de cor
+nas bordas e reflexo no vidro. A cor vem do tema.
+
+- Quando a GPU assume, as scanlines, o sweep e a vinheta em CSS saem, para
+  não duplicar. Sem WebGPU (Safari antigo, http fora de localhost), fica
+  tudo em CSS como antes.
+- Com `prefers-reduced-motion`, desenha um quadro parado. Nada pisca.
+- As props `scanlines`, `sweep` e `vignette` desligadas também desligam o
+  equivalente na GPU.
+
+Ajuste fino (todos de 0 a 1):
+
+```tsx
+<CRTScreen gpu={{ mask: 0.5, grain: 0.2, interference: 0, glare: 0.4 }} />
+```
+
+Para uma tela CRT própria, use `<CRTGpuOverlay>` dentro de um container com
+`position: relative`. Ele avisa `onStatusChange('gpu' | 'unsupported')`
+para você desligar os seus efeitos em CSS. Sem React, use
+`createCrtOverlay(canvas, opções)`.
 
 ### Tema próprio
 

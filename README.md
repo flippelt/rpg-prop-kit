@@ -33,8 +33,14 @@ Clique para ver em 1080p.
 | `<Poster>`       | Cartaz de aviso / procurado (moldura dupla, título em caixa alta). |
 | `<MetalPlate>`   | Placa escovada com rebites (`iron` / `brass` / `gunmetal`). |
 | `<Dataslate>`    | Tablete sci-fi (`imperial` / `union` / `amber`) com LCD e scanlines. |
+| `<EditorBlock>`  | Bloco de formulário de editor: `<details>` fechado com título e uma linha do que há dentro. |
 
-Hook: `useTypewriter(text, options)` — a lógica de digitação, caso queira montar o seu próprio componente.
+Hooks:
+
+- `useTypewriter(text, options)`: a lógica de digitação, caso queira montar o seu próprio componente.
+- `useResizableWidth({ storageKey, defaultWidth, minWidth, maxRatio })`: largura de um menu lateral. Arrasta pela borda, anda com ← / →, volta ao padrão no duplo clique e recolhe. Grava em `<storageKey>.width` e `<storageKey>.collapsed`.
+
+`<EditorBlock>` e `useResizableWidth` são o menu dos editores da família (OPORD, scenario-forge, GM Control Room). As cores do bloco vêm de `--rpk-block-line`, `--rpk-block-accent` e `--rpk-block-muted`.
 
 As classes CSS (`rpk-parchment`, `rpk-seal`, `rpk-poster`, `rpk-plate`,
 `rpk-slate`) funcionam sozinhas se você só importar `rpg-prop-kit/styles.css`

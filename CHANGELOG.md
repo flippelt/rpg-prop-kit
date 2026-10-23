@@ -10,6 +10,17 @@ e o projeto adota o [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
 ## [Não publicado]
 
+## [0.4.0] - 2026-10-23
+
+### Adicionado
+
+- `<EditorBlock>`: bloco de formulário de editor. É um `<details>` que começa
+  fechado, com título e uma linha (`sub`) do que há dentro; `name` vira
+  `data-block`. Cores por `--rpk-block-line`, `--rpk-block-accent` e
+  `--rpk-block-muted`.
+- `useResizableWidth()`: largura de menu lateral arrastável (← / →, duplo
+  clique volta ao padrão, recolher), gravada no `localStorage`.
+
 ## [0.3.0] - 2026-10-14
 
 ### Adicionado

@@ -1,0 +1,45 @@
+/* Bloco de editor. O app escolhe as cores:
+   --rpk-block-line   (borda entre blocos)
+   --rpk-block-accent (título e seta aberta)
+   --rpk-block-muted  (linha de baixo e seta fechada) */
+.rpk-block {
+  border-top: 1px solid var(--rpk-block-line, color-mix(in srgb, currentColor 18%, transparent));
+}
+.rpk-block:last-of-type {
+  border-bottom: 1px solid var(--rpk-block-line, color-mix(in srgb, currentColor 18%, transparent));
+}
+.rpk-block__summary {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 0.6rem 0 0.6rem 1.15rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.rpk-block__summary::-webkit-details-marker {
+  display: none;
+}
+.rpk-block__summary::before {
+  content: '▸';
+  position: absolute;
+  left: 0.1rem;
+  top: 0.6rem;
+  color: var(--rpk-block-muted, color-mix(in srgb, currentColor 60%, transparent));
+}
+.rpk-block[open] > .rpk-block__summary::before {
+  content: '▾';
+  color: var(--rpk-block-accent, currentColor);
+}
+.rpk-block__title {
+  font-weight: 600;
+  color: var(--rpk-block-accent, currentColor);
+}
+.rpk-block__sub {
+  font-size: 0.78em;
+  color: var(--rpk-block-muted, color-mix(in srgb, currentColor 60%, transparent));
+}
+.rpk-block__body {
+  padding: 0 0 0.8rem 1.15rem;
+}

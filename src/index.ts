@@ -36,5 +36,11 @@ export type { MetalPlateProps, MetalTone } from './components/MetalPlate'
 export { Dataslate } from './components/Dataslate'
 export type { DataslateProps, DataslateTone } from './components/Dataslate'
 
+export { EditorBlock } from './components/EditorBlock'
+export type { EditorBlockProps } from './components/EditorBlock'
+
 export { useTypewriter } from './hooks/useTypewriter'
 export type { UseTypewriterOptions, UseTypewriterResult } from './hooks/useTypewriter'
+
+export { useResizableWidth } from './hooks/useResizableWidth'
+export type { UseResizableWidthOptions, UseResizableWidthResult } from './hooks/useResizableWidth'
